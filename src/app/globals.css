@@ -3,3 +3,11 @@
 :root {
     --main-color: #0B72FF;
 }
+
+.background {
+    background-color: var(--main-color);
+}
+
+.text-color {
+    color: #ffff;
+}
