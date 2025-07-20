@@ -2,6 +2,9 @@
 
 :root {
     --main-color: #0B72FF;
+    --text-color: #1e2939;
+    --secound-text-color: ;
+    --shop-bg: #EDEEEB;
 }
 
 .background {
@@ -10,4 +13,9 @@
 
 .text-color {
     color: #ffff;
+}
+
+body {
+    background-color: var(--shop-bg);
+    color: var(--text-color);
 }
