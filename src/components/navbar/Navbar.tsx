@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function Navbar() {
     return (
-        <header className='background text-color py-4 mb-[30px]'>
+        <header className='background text-color py-4'>
             <div className='w-[90%] mx-auto flex justify-between items-center'>
                 <div className='flex justify-between items-center gap-20' id='navbar-left-side'>
                     <div>
