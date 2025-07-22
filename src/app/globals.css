@@ -21,11 +21,21 @@ body {
 }
 
 .button {
-    padding: 6px 15px;
+    padding: 4px 12px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     color: #ffff;
     background-color: var(--main-color);
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.image {
+    width: 185px;
+    height: auto;
+}
+
+.product-image:hover {
+    transition: .75s;
+    transform: translate(0, -20px);
 }
