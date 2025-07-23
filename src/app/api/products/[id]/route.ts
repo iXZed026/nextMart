@@ -2,7 +2,7 @@ import { connectToDatabase } from "@/app/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import Product from "../../../../../model/Product";
 
-interface IProductRouteParams {
+export interface IProductRouteParams {
     params: { id: string }
 }
 

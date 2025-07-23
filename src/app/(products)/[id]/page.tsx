@@ -1,15 +1,15 @@
+import { IProductRouteParams } from '@/app/api/products/[id]/route';
 import Container from '@/components/container/Container'
 import Image from 'next/image'
 import React from 'react'
 
-async function Product({ params, searchParams }: any) {
+async function Product({ params }: IProductRouteParams) {
 
     const id = await params.id;
 
     const result = await fetch(`http://localhost:3000/api/products/${id}`)
     const product = await result.json();
 
-    console.log(product);
 
     return (
         <Container>
@@ -21,12 +21,12 @@ async function Product({ params, searchParams }: any) {
                         height={0}
                         sizes='100vw'
                         quality={65}
-                        alt='product iamge'
+                        alt='product image'
                         priority={true}
                         style={{ width: "300px" }}
                     />
                 </div>
-                <div className="col-span-8 relative py-10">
+                <div className="col-span-8 relative py-10a">
                     <h2 className='text-2xl font-bold mb-5'>{product.title}</h2>
                     <h4 className='text-[var(--secound-text-color)] mb-5'>Category: <span>{product.Category}</span></h4>
                     <p className='mb-5 font-semibold'>{product.description}.Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ad aspernatur assumenda praesentium, quod facilis placeat sequi nemo quam ab qui unde labore! Fugiat illum labore consequuntur corporis quas nemo?</p>
