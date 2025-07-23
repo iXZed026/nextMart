@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLinks from './navlinks/NavLinks'
-import { FaCartShopping } from 'react-icons/fa6'
-import Link from 'next/link'
+
+import CartCounter from './navlinks/cart-counter/CartCounter'
 
 function Navbar() {
     return (
@@ -14,9 +14,7 @@ function Navbar() {
                     <NavLinks />
                 </div>
                 <div id='navbar-right-side'>
-                    <Link href='/cart'>
-                        <FaCartShopping className='text-2xl' />
-                    </Link>
+                    <CartCounter />
                 </div>
             </div>
         </header>
