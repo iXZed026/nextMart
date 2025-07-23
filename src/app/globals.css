@@ -39,3 +39,10 @@ body {
     transition: .75s;
     transform: translate(0, -20px);
 }
+
+.loading {
+    border-top: 5px solid var(--main-color);
+    border-right: 5px solid var(--main-color);
+    border-radius: 50%;
+    padding: 30px;
+}
