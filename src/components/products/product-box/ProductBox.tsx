@@ -7,7 +7,7 @@ import Link from 'next/link';
 function ProductBox(props: IProduct) {
     return (
         <div className='col-span-3'>
-            <Link href={`/products/${props._id}`}>
+            <Link href={`/${props._id}`}>
                 <div className='bg-white flex justify-center items-center mb-3 rounded-xl h-52'>
                     <Image
                         className='image product-image'
