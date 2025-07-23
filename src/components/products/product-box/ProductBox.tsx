@@ -2,9 +2,13 @@ import React from 'react';
 import Image from 'next/image'
 import { IProduct } from '@/app/api/products/route';
 import Link from 'next/link';
+import ProductBoxButton from './products-box-button/ProductBoxButton';
 
 
 function ProductBox(props: IProduct) {
+
+
+
     return (
         <div className='col-span-3'>
             <Link href={`/${props._id}`}>
@@ -21,10 +25,10 @@ function ProductBox(props: IProduct) {
                 </div>
                 <h4 className='text-md font-bold mb-3'>{props.title}</h4>
             </Link>
-                <div className='flex justify-between items-center mb-4'>
-                    <span className='text-md font-bold'>${props.price}</span>
-                    <button className='button'>Add To Cart</button>
-                </div>
+            <div className='flex justify-between items-center mb-4'>
+                <span className='text-md font-bold'>${props.price}</span>
+                <ProductBoxButton {...props}/>
+            </div>
         </div>
     )
 }
