@@ -20,11 +20,11 @@ function ProductBox(props: IProduct) {
                     />
                 </div>
                 <h4 className='text-md font-bold mb-3'>{props.title}</h4>
+            </Link>
                 <div className='flex justify-between items-center mb-4'>
                     <span className='text-md font-bold'>${props.price}</span>
                     <button className='button'>Add To Cart</button>
                 </div>
-            </Link>
         </div>
     )
 }
