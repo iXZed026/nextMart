@@ -1,6 +1,5 @@
 import React from 'react'
 import NavLinks from './navlinks/NavLinks'
-
 import CartCounter from './navlinks/cart-counter/CartCounter'
 
 function Navbar() {
