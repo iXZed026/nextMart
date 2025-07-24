@@ -13,7 +13,7 @@ function ProductBoxButton(props: IProduct) {
 
         if (findProduct) {
             setCart((prevCart: ICart[]) => (
-                prevCart.map((item: any) => {
+                prevCart.map((item) => {
                     if (item._id === findProduct._id) {
                         return { ...item, count: item.count + 1 };
                     }
