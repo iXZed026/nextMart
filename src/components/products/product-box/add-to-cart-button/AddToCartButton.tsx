@@ -3,7 +3,7 @@ import { IProduct } from '@/app/api/products/route'
 import { ICart, useCartContext } from '@/context/CartProvider'
 import React from 'react'
 
-function ProductBoxButton(props: IProduct) {
+function AddToCartButton (props: IProduct) {
 
     const { cart, setCart } = useCartContext();
 
@@ -34,4 +34,4 @@ function ProductBoxButton(props: IProduct) {
     )
 }
 
-export default ProductBoxButton
+export default AddToCartButton;
