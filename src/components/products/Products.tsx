@@ -6,14 +6,14 @@ import Loading from '../loading/Loading'
 function Products() {
 
     return (
+            <div className='py-10 bg-[var(--shop-bg)]'>
         <Container>
-            <div className='py-10'>
                 <h2 className='font-semibold text-2xl text-center py-2 mb-5'>Products</h2>
                 <Suspense fallback={<Loading />}>
                     <ProductsContent />
                 </Suspense>
-            </div>
         </Container>
+            </div>
     )
 }
 
