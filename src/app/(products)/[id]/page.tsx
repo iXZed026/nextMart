@@ -1,5 +1,6 @@
 import { IProductRouteParams } from '@/app/api/products/[id]/route';
 import Container from '@/components/container/Container'
+import ProductBoxButton from '@/components/products/product-box/add-to-cart-button/AddToCartButton';
 import Image from 'next/image'
 import React from 'react'
 
@@ -32,7 +33,7 @@ async function Product({ params }: IProductRouteParams) {
                     <p className='mb-5 font-semibold'>{product.description}.Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ad aspernatur assumenda praesentium, quod facilis placeat sequi nemo quam ab qui unde labore! Fugiat illum labore consequuntur corporis quas nemo?</p>
                     <div className='flex items-center gap-5 absolute bottom-3'>
                         <span>${product.price}</span>
-                        <button className='button'>Add To Cact</button>
+                        <ProductBoxButton {...product} />
                     </div>
                 </div>
             </div>
