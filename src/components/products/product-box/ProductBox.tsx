@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'
 import { IProduct } from '@/app/api/products/route';
 import Link from 'next/link';
-import ProductBoxButton from './products-box-button/ProductBoxButton';
+import AddToCartButton from './add-to-cart-button/AddToCartButton';
 
 
 function ProductBox(props: IProduct) {
@@ -27,7 +27,7 @@ function ProductBox(props: IProduct) {
             </Link>
             <div className='flex justify-between items-center mb-4'>
                 <span className='text-md font-bold'>${props.price}</span>
-                <ProductBoxButton {...props}/>
+                <AddToCartButton {...props} />
             </div>
         </div>
     )
