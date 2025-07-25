@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import Container from '../container/Container'
 
@@ -23,7 +22,7 @@ function HeroSection() {
                         </button>
                     </div>
                     <div>
-                        <div className='relative w-[450px] h-[300px]'>
+                        <div className='w-[450px] h-[300px]'>
                             <img
                                 className='rounded-lg'
                                 src="/images/hero.jpeg"
