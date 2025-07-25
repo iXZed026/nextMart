@@ -9,8 +9,8 @@ import Link from 'next/link';
 
 function CartItem() {
 
-    const { cart, setCart } = useCartContext();
-    const [totalPrice, setTotalPrice] = useState<number>(0)
+    const { cart, setCart, totalPrice, setTotalPrice } = useCartContext();
+
 
     useEffect(() => {
         if (cart.length > 0) {
@@ -92,7 +92,7 @@ function CartItem() {
                                     </div>
                                 </td>
                                 <td>
-                                    ${(item.price) * item.count}
+                                    ${((item.price) * item.count).toLocaleString()}
                                 </td>
                                 <td>
                                     <div className='flex justify-center items-center'>
@@ -111,7 +111,7 @@ function CartItem() {
                         <td></td>
                         <td></td>
                         <td>
-                            <div className="flex justify-center">${totalPrice}</div>
+                            <div className="flex justify-center">${totalPrice.toLocaleString()}</div>
                         </td>
                     </tr>
                 </>
@@ -122,8 +122,8 @@ function CartItem() {
                     <td className='w-[52%]'>
                         <div className=' text-gray-600'>
                             <Link href="/" className='flex flex-col justify-center items-center gap-5'>
-                            <VscEmptyWindow className='text-5xl'/>
-                            <div className='text-2xl'>Your Cart Is Empty.</div>
+                                <VscEmptyWindow className='text-5xl' />
+                                <div className='text-2xl'>Your Cart Is Empty.</div>
                             </Link>
                         </div>
                     </td>

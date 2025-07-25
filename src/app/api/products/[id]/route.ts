@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 import Product from "../../../../../model/Product";
 
 export interface IProductRouteParams {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
 export async function GET(req: NextRequest, { params }: IProductRouteParams) {
+    const {id} = await params;
 
-    const id = await params.id;
     try {
         await connectToDatabase();
         const product = await Product.findOne({ _id: id })

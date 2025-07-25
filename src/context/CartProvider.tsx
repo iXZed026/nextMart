@@ -21,9 +21,10 @@ export function useCartContext() {
 function CartProvider({ children }: ChildrenProps) {
 
     const [cart, setCart] = useState<[]>([])
+    const [totalPrice, setTotalPrice] = useState<number>(0)
 
     return (
-        <CartContext.Provider value={{ cart, setCart }}>
+        <CartContext.Provider value={{ cart, setCart ,totalPrice,setTotalPrice}}>
             {children}
         </CartContext.Provider>
     )

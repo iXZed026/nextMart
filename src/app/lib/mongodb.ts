@@ -8,8 +8,9 @@ let isConnected: boolean = false;
 export async function connectToDatabase() {
     if (isConnected) console.log("Database is already connected.")
     try {
-        mongoose.connect(uri, { dbName: "nextmart" })
+        await mongoose.connect(uri, { dbName: "nextmart" })
         isConnected = true;
+        console.log("connect shode")
     }
     catch (err) {
         console.log("An error occurred while connecting to the database. ", err)

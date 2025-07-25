@@ -24,10 +24,9 @@ function HeroSection() {
                     </div>
                     <div>
                         <div className='relative w-[450px] h-[300px]'>
-                            <Image
+                            <img
                                 className='rounded-lg'
                                 src="/images/hero.jpeg"
-                                fill
                                 alt='Electronic image'
                             />
                         </div>

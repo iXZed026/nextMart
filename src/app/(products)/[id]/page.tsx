@@ -6,7 +6,7 @@ import React from 'react'
 
 async function Product({ params }: IProductRouteParams) {
 
-    const id = await params.id;
+    const { id } = await params;
 
     const result = await fetch(`http://localhost:3000/api/products/${id}`)
     const product = await result.json();
