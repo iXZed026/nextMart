@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@/components/container/Container'
 import CartTable from '@/components/cart-table/CartTable'
+import CartForm from '@/components/cart-form/CartForm'
 
 
 function Cart() {
@@ -13,6 +14,7 @@ function Cart() {
                 </div>
                 <div className="cart-box col-span-5 h-[600px]">
                     <h2 className='mb-3 text-xl font-bold'>Your information</h2>
+                    <CartForm />
                 </div>
             </div>
         </Container>
