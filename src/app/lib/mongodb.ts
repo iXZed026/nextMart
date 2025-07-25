@@ -10,11 +10,11 @@ export async function connectToDatabase() {
     try {
         await mongoose.connect(uri, { dbName: "nextmart" })
         isConnected = true;
-        console.log("connect shode")
+        console.log("is connected")
     }
     catch (err) {
         console.log("An error occurred while connecting to the database. ", err)
-        process.exit(1)
+        // process.exit(1)
     }
 
 }
