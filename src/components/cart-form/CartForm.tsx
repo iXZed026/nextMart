@@ -1,7 +1,10 @@
 "use client"
+import { useCartContext } from '@/context/CartProvider'
 import React, { useState } from 'react'
 
 function CartForm() {
+
+    const { cart, totalPrice } = useCartContext();
 
     const [inputs, setInputs] = useState<any>({
         name: '',
@@ -12,6 +15,8 @@ function CartForm() {
         postalCode: '',
     });
 
+
+
     function setValueHandler(e: any) {
         setInputs((prevInput: any) => {
             return { ...prevInput, [e.target.name]: e.target.value }
@@ -19,10 +24,26 @@ function CartForm() {
         )
     }
 
-    function submitHandler(e: React.FormEvent) {
+    async function submitHandler(e: React.FormEvent) {
         e.preventDefault();
 
-        console.log(inputs)
+        const orderData = {
+            user: inputs,
+            cart,
+            totalPrice,
+        }
+
+        const response = await fetch("http://localhost:3000/api/order", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData)
+        })
+
+        console.log(await response.json())
+
+
     }
 
     return (
