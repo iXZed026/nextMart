@@ -18,8 +18,13 @@ function CartItem() {
                 return initial + (item.price * item.count)
             }, 0)
             setTotalPrice(calulatePrice)
+            localStorage.setItem("cart", JSON.stringify(cart))
         }
-    }, [cart])
+    }, [cart]);
+
+    useEffect(() => {
+        setCart(JSON.parse(localStorage.getItem('cart') as string));
+    }, [])
 
     function increaseHandler(ID: string) {
         setCart((prevCart: ICart[]) => {
