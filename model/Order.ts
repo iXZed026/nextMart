@@ -1,15 +1,18 @@
 import mongoose from "mongoose";
 
+const date = new Date();
+const FullDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
+
 const OrderSchema = new mongoose.Schema({
-    users: {
+    user: {
         name: String,
         email: String,
         country: String,
         city: String,
         address: String,
-        postalCode: Number,
+        postalCode: String,
     },
-    cart: {
+    cart: [{
         _id: String,
         title: String,
         description: String,
@@ -17,10 +20,11 @@ const OrderSchema = new mongoose.Schema({
         category: String,
         image: String,
         count: Number,
-    },
-    totalprice: Number,
+    }],
+
+    totalPrice: Number,
     status: { type: String, default: "pending" },
-    createAt: { type: String, default: Date.now }
+    createAt: { type: String, default: FullDate },
 
 })
 
