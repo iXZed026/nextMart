@@ -1,6 +1,6 @@
 "use client"
 import { ChildrenProps } from '@/types/children'
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export interface ICart {
     _id: string,
@@ -23,8 +23,12 @@ function CartProvider({ children }: ChildrenProps) {
     const [cart, setCart] = useState<[]>([])
     const [totalPrice, setTotalPrice] = useState<number>(0)
 
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }, [cart]);
+
     return (
-        <CartContext.Provider value={{ cart, setCart ,totalPrice,setTotalPrice}}>
+        <CartContext.Provider value={{ cart, setCart, totalPrice, setTotalPrice }}>
             {children}
         </CartContext.Provider>
     )

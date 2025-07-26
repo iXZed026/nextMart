@@ -18,7 +18,6 @@ function CartItem() {
                 return initial + (item.price * item.count)
             }, 0)
             setTotalPrice(calulatePrice)
-            localStorage.setItem("cart", JSON.stringify(cart))
         }
     }, [cart]);
 
@@ -70,6 +69,7 @@ function CartItem() {
                             <tr className='border-[1px] border-gray-300 h-32' key={item._id}>
                                 <td>
                                     <Image
+                                    className='select-none'
                                         src={item.image}
                                         width={100}
                                         height={100}
@@ -80,7 +80,7 @@ function CartItem() {
                                     <span>{item.title}</span>
                                 </td>
                                 <td>
-                                    <div className='flex  items-center'>
+                                    <div className='flex  items-center select-none'>
                                         <button
                                             onClick={() => decreaseHandler(item._id)}
                                             className='button'
@@ -100,7 +100,7 @@ function CartItem() {
                                     ${((item.price) * item.count).toLocaleString()}
                                 </td>
                                 <td>
-                                    <div className='flex justify-center items-center'>
+                                    <div className='flex justify-center items-center select-none'>
                                         <FaDeleteLeft
                                             className='cursor-pointer text-2xl text-red-500'
                                             onClick={() => removeCartItem(item._id)}
