@@ -1,8 +1,9 @@
 "use client"
 import { IProduct } from '@/app/api/products/route'
+import SuccessModal from '@/components/modal/success-modal/SuccessModal';
 import { ICart, useCartContext } from '@/context/CartProvider'
 import { usePathname, useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useState } from 'react'
 
 function AddToCartButton(props: IProduct) {
 
@@ -10,7 +11,7 @@ function AddToCartButton(props: IProduct) {
     const router = useRouter();
     const pathname = usePathname()
 
-
+    const [showModal, setShowModal] = useState<boolean>(false)
 
     function addToCartHandler() {
 
@@ -34,12 +35,24 @@ function AddToCartButton(props: IProduct) {
 
         if (pathname !== "/") {
             return router.push("/")
+        } else {
+            setShowModal(true);
+            setTimeout(() => setShowModal(false), 4000)
         }
 
     }
 
     return (
-        <button onClick={addToCartHandler} className='button'>Add To Cart</button >
+        <>
+            <button
+                onClick={addToCartHandler}
+                disabled={showModal}
+                className={`button ${showModal ? "opacity-20" : ""}`}
+            >
+                Add To Cart
+            </button >
+            <SuccessModal showModal={showModal} title={"Added to cart!"} />
+        </>
     )
 }
 
