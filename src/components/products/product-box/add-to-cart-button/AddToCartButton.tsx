@@ -1,11 +1,16 @@
 "use client"
 import { IProduct } from '@/app/api/products/route'
 import { ICart, useCartContext } from '@/context/CartProvider'
+import { usePathname, useRouter } from 'next/navigation';
 import React from 'react'
 
-function AddToCartButton (props: IProduct) {
+function AddToCartButton(props: IProduct) {
 
     const { cart, setCart } = useCartContext();
+    const router = useRouter();
+    const pathname = usePathname()
+
+
 
     function addToCartHandler() {
 
@@ -25,6 +30,10 @@ function AddToCartButton (props: IProduct) {
             setCart((prevCart: ICart[]) => {
                 return [...prevCart, { ...props, count: 1 }];
             })
+        }
+
+        if (pathname !== "/") {
+            return router.push("/")
         }
 
     }
