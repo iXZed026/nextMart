@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 function CartForm() {
 
     const { cart, totalPrice } = useCartContext();
+    const [error, setError] = useState<string>("")
+
 
     const [inputs, setInputs] = useState<any>({
         name: '',
@@ -33,7 +35,7 @@ function CartForm() {
             totalPrice,
         }
 
-        const response = await fetch("http://localhost:3000/api/order", {
+        const result = await fetch("http://localhost:3000/api/order", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -41,7 +43,21 @@ function CartForm() {
             body: JSON.stringify(orderData)
         })
 
-        console.log(await response.json())
+        if (!result.ok) {
+            const response = await result.json()
+            setError(response._message)
+        } else {
+            setError("")
+            setInputs({
+                name: '',
+                email: '',
+                country: '',
+                city: '',
+                address: '',
+                postalCode: '',
+            })
+            alert("Your order successfuly sended");
+        }
 
 
     }
@@ -97,7 +113,12 @@ function CartForm() {
                 de'
             />
 
-            <br /><br /><br />
+            <br />
+            <span className={`text-red-500 font-semibold ${!error ? "overflow-hidden" : "overflow-visible"}`}>
+                {error}
+
+            </span>
+            <br /><br />
             <button
                 className='w-full bg-[var(--main-color)] cursor-pointer h-[50px] text-white font-bold rounded-lg hover'
                 type='submit'

@@ -57,7 +57,6 @@ function CartItem() {
         setCart((prevCart: ICart[]) => {
             return prevCart.filter((item) => item._id !== ID)
         })
-        console.log(cart)
     }
 
     return (
