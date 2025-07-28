@@ -77,3 +77,14 @@ body {
     transition: .5s;
     opacity: .85;
 }
+
+.modal {
+    animation: modalAni .35s ease-in-out 1 alternate;
+}
+
+
+@keyframes modalAni {
+    0% {
+        top: -100px;
+    }
+}
