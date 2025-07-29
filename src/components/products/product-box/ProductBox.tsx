@@ -10,7 +10,7 @@ function ProductBox(props: IProduct) {
 
 
     return (
-        <div className='col-span-3'>
+        <div className='xl:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 sm:flex-none'>
             <Link href={`/${props._id}`}>
                 <div className='bg-white flex justify-center items-center mb-3 rounded-xl h-52'>
                     <Image

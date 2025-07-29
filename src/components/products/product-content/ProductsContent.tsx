@@ -11,7 +11,7 @@ async function ProductsContent() {
     })
     const products = await resullt.json();
     return (
-        <div className="grid grid-cols-12 gap-14">
+        <div className="grid grid-cols-12 sm:gap-10">
             {
                 products.map((product: IProduct, key: string) => <ProductBox key={product._id} {...product} />)
             }
