@@ -7,6 +7,11 @@
     --shop-bg: #BFC0BE;
 }
 
+body {
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
 .background {
     background-color: var(--main-color);
 }
@@ -15,9 +20,6 @@
     color: #ffff;
 }
 
-body {
-    color: var(--text-color);
-}
 
 .button {
     padding: 4px 12px;
