@@ -15,8 +15,8 @@ async function Product({ params }: IProductRouteParams) {
 
     return (
         <Container>
-            <div className='grid grid-cols-12 gap-19 py-10'>
-                <div className="col-span-4 flex justify-center items-center bg-white h-[350px] rounded-xl">
+            <div className='grid grid-cols-12 gap-19 py-10 h-full'>
+                <div className="col-span-4 flex justify-center py-10 items-center bg-white rounded-xl">
                     <Image
                         src={product.image}
                         width={0}
