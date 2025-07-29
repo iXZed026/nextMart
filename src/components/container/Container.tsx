@@ -4,7 +4,7 @@ import React from 'react'
 function Container({ children }: ChildrenProps) {
     return (
         <div
-            className='w-[95%] xl:w-[75%] lg:w-[80%] md:w-[85%] sm:w-[90%] mx-auto'
+            className='w-[85%] xl:w-[75%] lg:w-[80%] md:w-[85%] sm:w-[90%] mx-auto'
         >
             {children}
         </div>
