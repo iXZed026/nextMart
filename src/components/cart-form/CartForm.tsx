@@ -1,14 +1,25 @@
 "use client"
 import { useCartContext } from '@/context/CartProvider'
 import React, { useState } from 'react'
+import SuccessModal from '../modal/success-modal/SuccessModal';
+
+export interface IUserInputs {
+    name: string,
+    email: string,
+    country: string,
+    city: string,
+    address: string,
+    postalCode: string,
+}
 
 function CartForm() {
 
-    const { cart, totalPrice } = useCartContext();
-    const [error, setError] = useState<string>("")
+    const { cart, setCart, totalPrice } = useCartContext();
+    const [error, setError] = useState<string>("");
+    const [showModal, setShowModal] = useState<boolean>(false);
 
 
-    const [inputs, setInputs] = useState<any>({
+    const [inputs, setInputs] = useState<IUserInputs>({
         name: '',
         email: '',
         country: '',
@@ -47,7 +58,8 @@ function CartForm() {
             const response = await result.json()
             setError(response._message)
         } else {
-            setError("")
+            setError("");
+
             setInputs({
                 name: '',
                 email: '',
@@ -56,7 +68,10 @@ function CartForm() {
                 address: '',
                 postalCode: '',
             })
-            alert("Your order successfuly sended");
+
+            setCart([])
+            setShowModal(true);
+            setTimeout(() => setShowModal(false), 4000)
         }
 
 
@@ -69,6 +84,7 @@ function CartForm() {
                 type="text"
                 name="name"
                 placeholder='Name'
+                value={inputs.name}
                 onChange={setValueHandler}
             />
 
@@ -78,6 +94,7 @@ function CartForm() {
                 type="text"
                 name="email"
                 placeholder='Email'
+                value={inputs.email}
                 onChange={setValueHandler}
             />
 
@@ -85,6 +102,7 @@ function CartForm() {
                 className='input bg-blue-100'
                 type="text"
                 name="country"
+                value={inputs.country}
                 onChange={setValueHandler} placeholder='Country'
 
             />
@@ -94,6 +112,7 @@ function CartForm() {
                 type="text"
                 name="city"
                 placeholder='City'
+                value={inputs.city}
                 onChange={setValueHandler}
             />
 
@@ -101,6 +120,7 @@ function CartForm() {
                 className='input bg-blue-100'
                 type="text"
                 name="address"
+                value={inputs.address}
                 onChange={setValueHandler} placeholder='Address'
 
             />
@@ -109,6 +129,7 @@ function CartForm() {
                 className='input bg-blue-100'
                 type="text"
                 name="postalCode"
+                value={inputs.postalCode}
                 onChange={setValueHandler} placeholder='PostalCo
                 de'
             />
@@ -125,6 +146,9 @@ function CartForm() {
             >
                 Buy
             </button>
+
+            {showModal && <SuccessModal title="Your order successfuly sended" showModal={showModal} />}
+
         </form>
     )
 }
