@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image'
 import { FaDeleteLeft } from "react-icons/fa6";
 import { ICart, useCartContext } from '@/context/CartProvider';
@@ -21,9 +21,6 @@ function CartItem() {
         }
     }, [cart]);
 
-    useEffect(() => {
-        setCart(JSON.parse(localStorage.getItem('cart') as string));
-    }, [])
 
     function increaseHandler(ID: string) {
         setCart((prevCart: ICart[]) => {

@@ -24,8 +24,14 @@ function CartProvider({ children }: ChildrenProps) {
     const [totalPrice, setTotalPrice] = useState<number>(0)
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
+        if(cart.length > 0){
+            localStorage.setItem("cart", JSON.stringify(cart))
+        }
     }, [cart]);
+
+    useEffect(() => {
+        setCart(JSON.parse(localStorage.getItem('cart') as string));
+    }, [])
 
     return (
         <CartContext.Provider value={{ cart, setCart, totalPrice, setTotalPrice }}>
