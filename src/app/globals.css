@@ -88,3 +88,7 @@ body {
         top: -100px;
     }
 }
+
+.link-style {
+    border-left: 4px solid white;
+}
