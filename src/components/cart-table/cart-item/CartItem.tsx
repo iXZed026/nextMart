@@ -62,10 +62,10 @@ function CartItem() {
                 <>
                     {
                         cart.map((item: ICart, key: string) => (
-                            <tr className='border-[1px] border-gray-300 h-32' key={item._id}>
+                            <tr className='border-[1px] border-gray-300 h-36 sm:text-md sm:font-semibold text-sm' key={item._id}>
                                 <td>
                                     <Image
-                                    className='select-none'
+                                        className='select-none'
                                         src={item.image}
                                         width={100}
                                         height={100}
@@ -76,7 +76,7 @@ function CartItem() {
                                     <span>{item.title}</span>
                                 </td>
                                 <td>
-                                    <div className='flex  items-center select-none'>
+                                    <div className='flex xl:flex-row flex-col-reverse items-center select-none gap-1'>
                                         <button
                                             onClick={() => decreaseHandler(item._id)}
                                             className='button'
@@ -92,11 +92,11 @@ function CartItem() {
                                         </button>
                                     </div>
                                 </td>
-                                <td>
+                                <td className="sm:w-auto w-[15%] text-center">
                                     ${((item.price) * item.count).toLocaleString()}
                                 </td>
                                 <td>
-                                    <div className='flex justify-center items-center select-none'>
+                                    <div className='flex sm:justify-center justify-end items-center select-none'>
                                         <FaDeleteLeft
                                             className='cursor-pointer text-2xl text-red-500'
                                             onClick={() => removeCartItem(item._id)}
@@ -118,18 +118,14 @@ function CartItem() {
                 </>
             ) : (
                 <tr className='h-[400px]'>
-                    <td className='w-[12%]'></td>
-                    <td className='w-[12%]'></td>
-                    <td className='w-[52%]'>
-                        <div className=' text-gray-600'>
-                            <Link href="/" className='flex flex-col justify-center items-center gap-5'>
-                                <VscEmptyWindow className='text-5xl' />
-                                <div className='text-2xl'>Your Cart Is Empty.</div>
+                    <td className='w-full'>
+                        <div className='text-gray-600'>
+                            <Link href="/" className='w-full flex flex-col justify-center items-center gap-5'>
+                                <VscEmptyWindow className='md:text-5xl text-2xl' />
+                                <div className='md:text-2xl text-lg'>Your Cart Is Empty.</div>
                             </Link>
                         </div>
                     </td>
-                    <td className='w-[12%]'></td>
-                    <td className='w-[12%]'></td>
                 </tr>
             )}
         </>

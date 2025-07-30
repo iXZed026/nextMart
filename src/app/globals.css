@@ -61,7 +61,7 @@ body {
 }
 
 .cart-box {
-    padding: 15px 25px;
+    padding: 15px 5px;
     box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.324);
     border-radius: 10px;
 }
