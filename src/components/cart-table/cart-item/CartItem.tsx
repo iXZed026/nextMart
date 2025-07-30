@@ -23,7 +23,7 @@ function CartItem() {
 
 
     function increaseHandler(ID: string) {
-        setCart((prevCart: ICart[]) => {
+        setCart((prevCart) => {
             return prevCart.map(item => {
                 if (item._id === ID && item.count < 5) {
                     return { ...item, count: item.count + 1 }
@@ -34,8 +34,8 @@ function CartItem() {
     }
 
     function decreaseHandler(ID: string) {
-        setCart((prevCart: ICart[]) => {
-            return prevCart.map(item => {
+        setCart((prevCart: any) => {
+            return prevCart.map((item: ICart) => {
                 if (item._id === ID) {
                     const newCount = item.count - 1
                     if (newCount <= 0) {
@@ -61,7 +61,7 @@ function CartItem() {
             {cart.length > 0 ? (
                 <>
                     {
-                        cart.map((item: ICart, key: string) => (
+                        cart.map((item, key) => (
                             <tr className='border-[1px] border-gray-300 h-36 sm:text-md sm:font-semibold text-sm' key={item._id}>
                                 <td>
                                     <Image
