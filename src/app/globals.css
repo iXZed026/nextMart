@@ -81,7 +81,6 @@ body {
 }
 
 .modal {
-    width: 350px;
     border-radius: 10px;
     border: 1px solid var(--main-color);
     background-color: #fff;

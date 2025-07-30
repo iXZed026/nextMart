@@ -51,7 +51,7 @@ function AddToCartButton(props: IProduct) {
             >
                 Add To Cart
             </button >
-            <SuccessModal showModal={showModal} title={"Added to cart!"} />
+            <SuccessModal showModal={showModal} title={`${props.title}, Added to cart!`} />
         </>
     )
 }
