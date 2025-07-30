@@ -19,7 +19,7 @@ function ProductBox(props: IProduct) {
                         width={0}
                         height={0}
                         sizes='100vw'
-                        quality={60}
+                        quality={50}
                         alt="product image"
                     />
                 </div>
