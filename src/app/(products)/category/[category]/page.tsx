@@ -17,7 +17,7 @@ async function ProductCategory({ params }: ICategory) {
 
     return (
         <Container>
-            <div className='grid grid-cols-12 gap-15 py-20'>
+            <div className='grid grid-cols-12 gap-10 py-20'>
                 {
                     productsCategory.map((item: IProduct, key: string) => <ProductBox {...item} key={item._id} />)
                 }
