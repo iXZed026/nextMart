@@ -9,14 +9,14 @@ function CartCounter() {
     const { cart, setCart } = useCartContext();
     const [counter, setCounter] = useState(0)
 
-    const numbers = [1, 2, 3, 4, 5, 6]
-
     useEffect(() => {
         if (cart.length > 0) {
             let calculateCartCounter = cart.reduce((initial: number, item: any) => {
                 return initial + item.count
             }, 0)
             setCounter(calculateCartCounter)
+        }else {
+            setCounter(0)
         }
     }, [cart])
 
