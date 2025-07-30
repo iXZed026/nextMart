@@ -81,13 +81,26 @@ body {
 }
 
 .modal {
+    width: 350px;
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+    background-color: #fff;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: modalAni .35s ease-in-out 1 alternate;
 }
 
-
 @keyframes modalAni {
     0% {
-        top: -100px;
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
 

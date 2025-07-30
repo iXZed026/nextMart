@@ -6,10 +6,10 @@ function SuccessModal({ showModal, title }: { showModal: boolean, title: string 
 
 
     return (
-        <div className={`modal ${showModal ? "block" : "hidden"} lg:w-[25%] w-[60%] bg-white mx-auto rounded-lg fixed top-2 left-50 right-50 border-2 border-[var(--main-color)]`}>
+        <div className={`modal ${showModal ? "block" : "hidden"}`}>
             <div className='w-full px-3 py-3 flex justify-between items-center'>
-                <span className='text-lg font-semibold text-gray-700'>{title}</span>
-                <span><IoCheckmarkCircle className='text-xl text-green-600' /></span>
+                <span className='sm:text-lg text-md font-semibold text-gray-700'>{title}</span>
+                <span><IoCheckmarkCircle className='text-2xl text-green-600' /></span>
             </div>
         </div>
     )
