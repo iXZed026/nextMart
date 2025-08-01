@@ -85,7 +85,7 @@ body {
     border: 1px solid var(--main-color);
     background-color: #fff;
     position: fixed;
-    top: 5%;
+    top: 50px;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: modalAni .35s ease-in-out 1 alternate;
