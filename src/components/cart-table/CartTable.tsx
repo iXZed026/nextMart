@@ -10,7 +10,7 @@ function CartTable() {
 
     return (
         <table className='w-full'>
-            <thead className='text-center sm:text-left bg-gray-200'>
+            <thead className='text-center sm:text-left text-gray-100  bg-[var(--main-color)]'>
                 <tr className='h-12'>
                     {
                         cart.length > 0 ? (

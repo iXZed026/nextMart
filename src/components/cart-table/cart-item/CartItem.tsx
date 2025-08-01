@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image'
 import { FaDeleteLeft } from "react-icons/fa6";
 import { ICart, useCartContext } from '@/context/CartProvider';
@@ -10,6 +10,7 @@ import Link from 'next/link';
 function CartItem() {
 
     const { cart, setCart, totalPrice, setTotalPrice } = useCartContext();
+    const totalPriceRef = useRef<any>(null);
 
 
     useEffect(() => {
@@ -55,6 +56,16 @@ function CartItem() {
             return prevCart.filter((item) => item._id !== ID)
         })
     }
+
+    useEffect(() => {
+        if (cart.length > 0) {
+            totalPriceRef.current.className = "flex justify-center price"
+
+            setTimeout(() => {
+                totalPriceRef.current.className = "flex justify-center"
+            }, 400)
+        }
+    }, [cart])
 
     return (
         <>
@@ -106,13 +117,13 @@ function CartItem() {
                             </tr>
                         ))
                     }
-                    <tr className='border-[1px] border-gray-300 h-14 font-semibold bg-gray-300'>
+                    <tr className='text-sm text-gray-100 h-14 font-medium bg-[var(--main-color)]'>
                         <td className='px-3'>Total</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td>
-                            <div className="flex justify-center">${totalPrice.toLocaleString()}</div>
+                            <div ref={totalPriceRef} className="flex justify-center">${totalPrice.toLocaleString()}</div>
                         </td>
                     </tr>
                 </>

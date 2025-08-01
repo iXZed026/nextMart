@@ -106,3 +106,15 @@ body {
 .link-style {
     border-left: 4px solid white;
 }
+
+.price {
+    color: white;
+    animation: priceAni 0.35s linear 1;
+}
+
+@keyframes priceAni {
+    0%{
+        color:rgb(3, 139, 3);
+        font-size: larger;
+    }
+}

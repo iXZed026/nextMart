@@ -47,15 +47,15 @@ function AddToCartButton(props: IProduct) {
                 setTimeout(() => {
                     setShowModal(false)
                     router.push("/");
-                }, 1000)
+                }, 4000)
             } else {
                 setShowModal(true);
-                setTimeout(() => setShowModal(false), 1000)
+                setTimeout(() => setShowModal(false), 4000)
             }
         } else {
             setShowModal(false)
             setShowErrorModal(true)
-            setTimeout(() => setShowErrorModal(false), 1000)
+            setTimeout(() => setShowErrorModal(false), 4000)
         }
 
     }

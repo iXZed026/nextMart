@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     default: "NextMart",
     template: "NextMart | %s"
   },
+  icons : "/images/next_mart-logo.png"
 };
 
 export default function RootLayout({
