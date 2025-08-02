@@ -1,5 +1,4 @@
 import React from 'react'
-import Container from '@/components/container/Container'
 import CartTable from '@/components/cart-table/CartTable'
 import CartForm from '@/components/cart-form/CartForm'
 

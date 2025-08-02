@@ -4,33 +4,30 @@ import Container from '@/components/container/Container';
 import ProductBox from '@/components/products/product-box/ProductBox';
 import React from 'react';
 
-interface ICategory {
-    params: Promise<{ category: string }>
+interface ICategoryProps {
+  params: { category: string };
 }
 
-async function ProductCategory({ params }: ICategory) {
+async function ProductCategory({ params }: ICategoryProps) {
+  const { category } = params;
 
-    const { category } = await params;
+  const result = await fetch(`http://localhost:3000/api/category/${category}`, {
+    cache: 'no-store',
+  });
 
-    const result = await fetch(`http://localhost:3000/api/category/${category}`);
-    const productsCategory = await result.json();
+  if (!result.ok) return <NotFound />;
 
+  const productsCategory: IProduct[] = await result.json();
 
-    return (
-        <Container>
-            {
-                result.ok ? (
-                    <div className='grid grid-cols-12 sm:gap-x-15 gap-y-20 py-20'>
-                        {
-                            productsCategory.map((item: IProduct, key: string) => <ProductBox {...item} key={item._id} />)
-                        }
-                    </div>
-                ) : (
-                    <NotFound />
-                )
-            }
-        </Container>
-    )
+  return (
+    <Container>
+      <div className='grid grid-cols-12 sm:gap-x-15 gap-y-20 py-20'>
+        {productsCategory.map((item: IProduct) => (
+          <ProductBox {...item} key={item._id} />
+        ))}
+      </div>
+    </Container>
+  );
 }
 
-export default ProductCategory
+export default ProductCategory;

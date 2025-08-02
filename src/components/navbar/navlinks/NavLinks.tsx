@@ -10,7 +10,6 @@ interface ILinks {
 }
 
 function NavLinks() {
-
     const pathname = usePathname();
 
     const listStyle: string = 'link-style font-semibold'
@@ -26,15 +25,18 @@ function NavLinks() {
     return (
         <nav>
             <ul className='flex items-center gap-12 text-md font-medium'>
-                {
-                    links.map((link, key) => (
-                        <li key={link.id} >
-                            <Link href={link.href} className={`px-3 py-1 ${pathname === link.href ? listStyle : ''}`}>
-                                {link.title}
-                            </Link>
-                        </li>
-                    ))
-                }
+                {links.map((link) => (
+                    <li key={link.id}>
+                        <Link
+                            href={link.href}
+                            className={`px-3 py-1 transition-colors duration-200 hover:text-blue-500 ${pathname === link.href ? listStyle : 'text-gray-600'
+                                }`}
+                            aria-current={pathname === link.href ? "page" : undefined}
+                        >
+                            {link.title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     )

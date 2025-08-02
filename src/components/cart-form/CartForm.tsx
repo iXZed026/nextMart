@@ -18,7 +18,6 @@ function CartForm() {
     const [error, setError] = useState<string>("");
     const [showModal, setShowModal] = useState<boolean>(false);
 
-
     const [inputs, setInputs] = useState<IUserInputs>({
         name: '',
         email: '',
@@ -28,13 +27,12 @@ function CartForm() {
         postalCode: '',
     });
 
-
-
-    function setValueHandler(e: any) {
-        setInputs((prevInput: any) => {
-            return { ...prevInput, [e.target.name]: e.target.value }
-        }
-        )
+    function setValueHandler(e: React.ChangeEvent<HTMLInputElement>) {
+        const { name, value } = e.target;
+        setInputs((prevInput: IUserInputs) => ({
+            ...prevInput,
+            [name]: value,
+        }));
     }
 
     async function submitHandler(e: React.FormEvent) {
@@ -44,7 +42,7 @@ function CartForm() {
             user: inputs,
             cart,
             totalPrice,
-        }
+        };
 
         const result = await fetch("http://localhost:3000/api/order", {
             method: 'POST',
@@ -52,11 +50,11 @@ function CartForm() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(orderData)
-        })
+        });
 
         if (!result.ok) {
-            const response = await result.json()
-            setError(response._message)
+            const response = await result.json();
+            setError(response._message || "Something went wrong");
         } else {
             setError("");
 
@@ -67,14 +65,12 @@ function CartForm() {
                 city: '',
                 address: '',
                 postalCode: '',
-            })
+            });
 
-            setCart([])
+            setCart([]);
             setShowModal(true);
-            setTimeout(() => setShowModal(false), 4000)
+            setTimeout(() => setShowModal(false), 4000);
         }
-
-
     }
 
     return (
@@ -87,7 +83,6 @@ function CartForm() {
                 value={inputs.name}
                 onChange={setValueHandler}
             />
-
 
             <input
                 className='input bg-blue-100'
@@ -102,9 +97,9 @@ function CartForm() {
                 className='input bg-blue-100'
                 type="text"
                 name="country"
+                placeholder='Country'
                 value={inputs.country}
-                onChange={setValueHandler} placeholder='Country'
-
+                onChange={setValueHandler}
             />
 
             <input
@@ -120,26 +115,26 @@ function CartForm() {
                 className='input bg-blue-100'
                 type="text"
                 name="address"
+                placeholder='Address'
                 value={inputs.address}
-                onChange={setValueHandler} placeholder='Address'
-
+                onChange={setValueHandler}
             />
 
             <input
                 className='input bg-blue-100'
                 type="text"
                 name="postalCode"
+                placeholder='Postal Code'
                 value={inputs.postalCode}
-                onChange={setValueHandler} placeholder='PostalCo
-                de'
+                onChange={setValueHandler}
             />
 
             <br />
             <span className={`text-red-500 font-semibold ${!error ? "overflow-hidden" : "overflow-visible"}`}>
                 {error}
-
             </span>
             <br /><br />
+
             <button
                 className='w-full bg-[var(--main-color)] cursor-pointer h-[50px] text-white font-bold rounded-lg hover'
                 type='submit'
@@ -147,10 +142,9 @@ function CartForm() {
                 Buy
             </button>
 
-            {showModal && <SuccessModal title="Your order successfuly sended" showModal={showModal} />}
-
+            {showModal && <SuccessModal title="Your order successfully sent" showModal={showModal} />}
         </form>
-    )
+    );
 }
 
-export default CartForm
+export default CartForm;
