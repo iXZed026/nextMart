@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Image from "next/image";
 
 interface ErrorProps {
     error: Error & { digest?: string };
@@ -8,31 +9,23 @@ interface ErrorProps {
 }
 
 export default function GlobalError({ error, reset }: ErrorProps) {
+    const errorMessage = getErrorMessage(error);
 
-    const [errorMessage, setErrorMessage] = useState<string>("");
-
-    useEffect(() => {
+    function getErrorMessage(error: Error & { digest?: string }): string {
         switch (error.name) {
             case "TypeError":
-                setErrorMessage(`A Type Error occurred: Invalid operation on data.`);
-                break
+                return "A Type Error occurred: Invalid operation on data.";
             case "ReferenceError":
-                setErrorMessage(`A variable or function is missing!`);
-                break
-            case "":
-                setErrorMessage(`Server Error: Our backend is having issues. Please try later.`);
-                break
+                return "A variable or function is missing!";
             case "SyntaxError":
-                setErrorMessage(`Code Error: There's a syntax mistake in our application.`);
-                break
+                return "Code Error: There's a syntax mistake in our application.";
             default:
                 if (error.digest?.startsWith("SERVER_ERROR") || error.message.includes("500")) {
-                    return setErrorMessage("Server Error: Our backend is having issues. Please try later.")
+                    return "Server Error: Our backend is having issues. Please try later.";
                 }
-                return setErrorMessage("An unexpected error occurred!")
+                return "An unexpected error occurred!";
         }
-
-    }, [])
+    }
 
     return (
         <html>
@@ -40,7 +33,13 @@ export default function GlobalError({ error, reset }: ErrorProps) {
                 <div className="w-full h-screen flex justify-center items-center text-center">
                     <div>
                         <div className="flex justify-center items-center">
-                            <img className="w-[450px]" src="/images/error.png" alt="Error image" />
+                            <Image
+                                className="w-[450px]"
+                                src="/images/error.png"
+                                alt="Error image"
+                                width={450}
+                                height={450}
+                            />
                         </div>
                         <h1 className="mb-3 text-2xl font-bold">Oops! Something went wrong.</h1>
                         <p className={`mb-6 text-gray-600 text-lg ${errorMessage ? "initial" : "hidden"}`}>
@@ -55,6 +54,6 @@ export default function GlobalError({ error, reset }: ErrorProps) {
                     </div>
                 </div>
             </body>
-        </html >
+        </html>
     );
 }
