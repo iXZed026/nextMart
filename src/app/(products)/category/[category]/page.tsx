@@ -1,11 +1,22 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import { IProduct } from '@/app/api/products/route';
 import NotFound from '@/app/not-found';
 import Container from '@/components/container/Container';
 import ProductBox from '@/components/products/product-box/ProductBox';
-import React from 'react';
 
 interface ICategoryProps {
   params: { category: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata(
+  { params }: ICategoryProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  return {
+    title: `${params.category} Products | Your Store`,
+    description: `Browse our ${params.category} collection`,
+  };
 }
 
 async function ProductCategory({ params }: ICategoryProps) {
@@ -21,8 +32,9 @@ async function ProductCategory({ params }: ICategoryProps) {
 
   return (
     <Container>
-      <div className='grid grid-cols-12 sm:gap-x-15 gap-y-20 py-20'>
-        {productsCategory.map((item: IProduct) => (
+      <h1 className="text-2xl font-bold mb-8 capitalize">{category} Products</h1>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8'>
+        {productsCategory.map((item) => (
           <ProductBox {...item} key={item._id} />
         ))}
       </div>
