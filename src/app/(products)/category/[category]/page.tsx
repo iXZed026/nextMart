@@ -1,4 +1,5 @@
 import { IProduct } from '@/app/api/products/route';
+import NotFound from '@/app/not-found';
 import Container from '@/components/container/Container';
 import ProductBox from '@/components/products/product-box/ProductBox';
 import React from 'react';
@@ -17,11 +18,17 @@ async function ProductCategory({ params }: ICategory) {
 
     return (
         <Container>
-            <div className='grid grid-cols-12 gap-y-20 py-20'>
-                {
-                    productsCategory.map((item: IProduct, key: string) => <ProductBox {...item} key={item._id} />)
-                }
-            </div>
+            {
+                result.ok ? (
+                    <div className='grid grid-cols-12 sm:gap-x-15 gap-y-20 py-20'>
+                        {
+                            productsCategory.map((item: IProduct, key: string) => <ProductBox {...item} key={item._id} />)
+                        }
+                    </div>
+                ) : (
+                    <NotFound />
+                )
+            }
         </Container>
     )
 }
