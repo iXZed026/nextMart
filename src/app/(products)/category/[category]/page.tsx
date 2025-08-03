@@ -1,26 +1,15 @@
-import { Metadata, ResolvingMetadata } from 'next';
 import { IProduct } from '@/app/api/products/route';
 import NotFound from '@/app/not-found';
 import Container from '@/components/container/Container';
 import ProductBox from '@/components/products/product-box/ProductBox';
 
 interface ICategoryProps {
-  params: { category: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export async function generateMetadata(
-  { params }: ICategoryProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  return {
-    title: `${params.category} Products | Your Store`,
-    description: `Browse our ${params.category} collection`,
-  };
+  params: Promise<{ category: string }>;
+  searchParams: Promise<{}>;
 }
 
 async function ProductCategory({ params }: ICategoryProps) {
-  const { category } = params;
+  const { category } = await params;
 
   const result = await fetch(`http://localhost:3000/api/category/${category}`, {
     cache: 'no-store',
@@ -32,8 +21,8 @@ async function ProductCategory({ params }: ICategoryProps) {
 
   return (
     <Container>
-      <h1 className="text-2xl font-bold mb-8 capitalize">{category} Products</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-8'>
+      <h1 className="text-2xl font-bold my-10">{category} Products</h1>
+      <div className='grid grid-cols-12 md:gap-15 sm:gap-20 gap-y-15 py-8'>
         {productsCategory.map((item) => (
           <ProductBox {...item} key={item._id} />
         ))}
