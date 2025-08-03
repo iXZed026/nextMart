@@ -2,6 +2,7 @@
 import { useCartContext } from '@/context/CartProvider'
 import React, { useState } from 'react'
 import SuccessModal from '../modal/success-modal/SuccessModal';
+import { vercelDomain } from '../products/product-content/ProductsContent';
 
 export interface IUserInputs {
     name: string,
@@ -44,7 +45,7 @@ function CartForm() {
             totalPrice,
         };
 
-        const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/order`, {
+        const result = await fetch(`${vercelDomain}/api/order`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import { IProduct } from '@/app/api/products/route';
 import NotFound from '@/app/not-found';
 import Container from '@/components/container/Container';
 import ProductBox from '@/components/products/product-box/ProductBox';
+import { vercelDomain } from '@/components/products/product-content/ProductsContent';
 
 interface ICategoryProps {
   params: Promise<{ category: string }>;
@@ -10,7 +11,7 @@ interface ICategoryProps {
 async function ProductCategory({ params }: ICategoryProps) {
   const { category } = await params;
 
-  const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/category/${category}`, {
+  const result = await fetch(`${vercelDomain}/api/category/${category}`, {
     cache: 'no-store',
   });
 
