@@ -5,7 +5,6 @@ import ProductBox from '@/components/products/product-box/ProductBox';
 
 interface ICategoryProps {
   params: Promise<{ category: string }>;
-  searchParams: Promise<{}>;
 }
 
 async function ProductCategory({ params }: ICategoryProps) {
