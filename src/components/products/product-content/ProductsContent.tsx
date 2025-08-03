@@ -2,8 +2,7 @@ import React from 'react'
 import ProductBox from '../product-box/ProductBox';
 import { IProduct } from '@/app/api/products/route';
 
-export const vercelDomain = process.env.NEXT_PUBLIC_BASE_URL as string;
-
+export const vercelDomain = process.env.NEXT_PUBLIC_BASE_URL as string
 
 async function ProductsContent() {
 
