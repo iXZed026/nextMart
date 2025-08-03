@@ -10,7 +10,7 @@ interface ICategoryProps {
 async function ProductCategory({ params }: ICategoryProps) {
   const { category } = await params;
 
-  const result = await fetch(`http://localhost:3000/api/category/${category}`, {
+  const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/category/${category}`, {
     cache: 'no-store',
   });
 

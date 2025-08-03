@@ -44,7 +44,7 @@ function CartForm() {
             totalPrice,
         };
 
-        const result = await fetch("http://localhost:3000/api/order", {
+        const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/order`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
