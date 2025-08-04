@@ -4,11 +4,7 @@ import { IProduct } from '@/app/api/products/route';
 
 async function ProductsContent() {
 
-    const resullt = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
-        next: {
-            revalidate: 20,
-        }
-    })
+    const resullt = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`)
     const products = await resullt.json();
     return (
         <div className="grid grid-cols-12 sm:gap-10">
