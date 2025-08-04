@@ -20,7 +20,7 @@ async function ProductsContent() {
     return (
         <div className="grid grid-cols-12 sm:gap-10">
             {
-                products.map((product: IProduct, key: string) => <ProductBox key={product._id} {...product} />)
+                products.map((product: IProduct, key: number) => <ProductBox key={product._id} {...product} />)
             }
         </div>
     )
