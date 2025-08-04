@@ -5,7 +5,7 @@ import { IProduct } from '@/app/api/products/route';
 async function ProductsContent() {
 
     const baseUrl = process.env.NODE_ENV === 'production'
-        ? 'https://next-mart-gamma.vercel.app/'
+        ? 'https://next-mart-git-main-danyals-projects-f5f13e9a.vercel.app'
         : 'http://localhost:3000';
 
 
