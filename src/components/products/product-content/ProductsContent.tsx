@@ -2,11 +2,9 @@ import React from 'react'
 import ProductBox from '../product-box/ProductBox';
 import { IProduct } from '@/app/api/products/route';
 
-export const vercelDomain = process.env.NEXT_PUBLIC_BASE_URL as string
-
 async function ProductsContent() {
 
-    const resullt = await fetch(`${vercelDomain}/api/products`, {
+    const resullt = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
         next: {
             revalidate: 20,
         }

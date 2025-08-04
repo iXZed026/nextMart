@@ -10,7 +10,7 @@ async function Product({ params }: IProductRouteParams) {
 
     const { id } = await params;
 
-    const result = await fetch(`http://localhost:3000/api/products/${id}`)
+    const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`)
     const product = await result.json();
 
 
