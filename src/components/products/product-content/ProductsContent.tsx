@@ -4,13 +4,9 @@ import { IProduct } from '@/app/api/products/route';
 
 async function ProductsContent() {
 
-    const baseUrl = process.env.NODE_ENV === 'production'
-        ? 'https://next-mart-git-main-danyals-projects-f5f13e9a.vercel.app'
-        : 'http://localhost:3000';
-
-
-    const resullt = await fetch(`${baseUrl}/api/products`)
+    const resullt = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`)
     const products = await resullt.json();
+
     return (
         <div className="grid grid-cols-12 sm:gap-10">
             {
