@@ -4,8 +4,16 @@ import { IProduct } from '@/app/api/products/route';
 
 async function ProductsContent() {
 
-    const resullt = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`)
-    const products = await resullt.json() || [];
+    const result = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`)
+    let products;
+
+    if (result.ok) {
+        products = await result.json()
+    } else {
+        products = []
+    }
+
+
     // const products = [
     //     {
     //         _id: "687e1e63b05bd7148d510012",
