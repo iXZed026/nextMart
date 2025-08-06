@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../container/Container'
 import Image from 'next/image'
+import VIewProductButton from './view-product-button/VIewProductButton'
 
 function HeroSection() {
     return (
@@ -13,9 +14,7 @@ function HeroSection() {
                             This website was built with Next.js, React, and TypeScript.
                             Designed to showcase my skills in modern web development.
                         </p>
-                        <button className='button'>
-                            View products
-                        </button>
+                        <VIewProductButton />
                     </div>
                     <div>
                         <div className='flex md:justify-end items-center'>
@@ -23,9 +22,9 @@ function HeroSection() {
                                 className='rounded-lg lg:w-[65%] md:w-[80%] w-full'
                                 src="/images/hero.jpeg"
                                 alt='Electronic image'
-                                width={800}  
-                                height={600} 
-                                priority={true} 
+                                width={800}
+                                height={600}
+                                priority={true}
                             />
                         </div>
                     </div>
