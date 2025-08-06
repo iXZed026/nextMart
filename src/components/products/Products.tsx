@@ -1,7 +1,6 @@
 "use client"
 import React, { Suspense } from 'react'
 import Container from '../container/Container'
-import ProductsContent from './product-content/ProductsContent'
 import Loading from '../loading/Loading'
 import { ChildrenProps } from '@/types/children'
 import { useViewProductContext } from '@/context/ViewProductProvider'

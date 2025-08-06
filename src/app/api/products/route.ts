@@ -18,6 +18,6 @@ export async function GET() {
         return NextResponse.json(products, { status: 200 })
     }
     catch (err) {
-        return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 })
+        return NextResponse.json({err, message: 'Internal Server Error' }, { status: 500 })
     }
 }

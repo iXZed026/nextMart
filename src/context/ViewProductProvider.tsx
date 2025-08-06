@@ -2,23 +2,26 @@
 import { ChildrenProps } from "@/types/children"
 import React, { createContext, RefObject, useContext, useRef } from "react"
 
-type ViewProductContextType = RefObject<HTMLDivElement> | null;
+type ViewProductContextType = RefObject<HTMLDivElement>;
 
-const ViewProductContext = createContext<any>(null);
+const ViewProductContext = createContext<ViewProductContextType | null>(null);
 
 export function useViewProductContext() {
-    return useContext(ViewProductContext)
+    const context = useContext(ViewProductContext);
+    if (!context) {
+        throw new Error('useViewProductContext must be used within a ViewProductProvider');
+    }
+    return context;
 }
 
 function ViewProductProvider({ children }: ChildrenProps) {
-
-    const viewProductRef = useRef<HTMLDivElement>(null)
+    const viewProductRef = useRef<HTMLDivElement>(null!);
 
     return (
         <ViewProductContext.Provider value={viewProductRef}>
             {children}
         </ViewProductContext.Provider>
-    )
+    );
 }
 
-export default ViewProductProvider
+export default ViewProductProvider; 
