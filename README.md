@@ -41,11 +41,7 @@ When a user proceeds to **checkout** and fills out the form, the following infor
 
 ## 🌐 Live Demo
 
-🔗 [Live on Vercel](https://your-vercel-project-url.vercel.app)
-
-## 📸 Preview
-
-![NextMart Preview](public/screenshot.png)
+🔗 [Live on Vercel](https://next-mart-shop.vercel.app)
 
 ---
 
