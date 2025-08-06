@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <header className='background text-color py-4'>
             <div className='w-[90%] mx-auto flex justify-between items-center'>
-                <div className='flex justify-between items-center gap-20' id='navbar-left-side'>
+                <div className='flex justify-between items-center gap-14' id='navbar-left-side'>
                     <div>
                         <h1 className='text-2xl font-bold'>NextMarket</h1>
                     </div>
