@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     template: "NextMart | %s"
   },
   icons: "/images/next_mart-logo.png",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
   openGraph: {
     title: "NextMart | Modern E-commerce App",
     description: "Buy your favorite products with ease – powered by Next.js and MongoDB.",

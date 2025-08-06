@@ -29,9 +29,7 @@ function NavLinks() {
                     <li key={link.id}>
                         <Link
                             href={link.href}
-                            className={`px-3 py-1 transition-colors duration-200 ${pathname === link.href ? listStyle : 'link-style'
-                                }`}
-                            aria-current={pathname === link.href ? "page" : undefined}
+                            className={`px-3 py-1 transition-colors duration-200 ${pathname === link.href ? listStyle : ''}`}
                         >
                             {link.title}
                         </Link>
