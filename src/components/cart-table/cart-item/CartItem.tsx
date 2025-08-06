@@ -22,11 +22,11 @@ function CartItem() {
 
   useEffect(() => {
     if (cart.length > 0 && totalPriceRef.current) {
-      totalPriceRef.current.className = "flex justify-center price";
+      totalPriceRef.current.className = "flex justify-center w-14 price";
 
       setTimeout(() => {
         if (totalPriceRef.current) {
-          totalPriceRef.current.className = "flex justify-center";
+          totalPriceRef.current.className = "flex justify-center w-14";
         }
       }, 400);
     }
@@ -115,7 +115,7 @@ function CartItem() {
             <td></td>
             <td></td>
             <td>
-              <div ref={totalPriceRef} className="flex justify-center">
+              <div ref={totalPriceRef} className="flex justify-center w-14">
                 ${totalPrice.toLocaleString()}
               </div>
             </td>
