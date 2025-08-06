@@ -4,7 +4,7 @@ import React, { createContext, RefObject, useContext, useRef } from "react"
 
 type ViewProductContextType = RefObject<HTMLDivElement> | null;
 
-const ViewProductContext = createContext<ViewProductContextType>(null);
+const ViewProductContext = createContext<any>(null);
 
 export function useViewProductContext() {
     return useContext(ViewProductContext)
@@ -12,7 +12,7 @@ export function useViewProductContext() {
 
 function ViewProductProvider({ children }: ChildrenProps) {
 
-    const viewProductRef = useRef<any>(null)
+    const viewProductRef = useRef<HTMLDivElement>(null)
 
     return (
         <ViewProductContext.Provider value={viewProductRef}>
