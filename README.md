@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ NextMart - E-commerce App with Next.js
 
-## Getting Started
+This is my **first Next.js project**, built as a simple e-commerce web app.
 
-First, run the development server:
+## 🚀 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The home page fetches product data from a MongoDB database using API routes and displays them to the user. Users can click on a product image to view **detailed information** about that specific product.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛒 Shopping Cart Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Add products to the cart
+- View all added products
+- Remove individual products
+- Update product quantities
+- See the total price in real-time
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🧾 Order Functionality
 
-## Learn More
+When a user proceeds to **checkout** and fills out the form, the following information is saved to a **MongoDB database**:
 
-To learn more about Next.js, take a look at the following resources:
+- User details (name, address, etc.)
+- Cart items
+- Total price
+- Order creation date
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js** 15
+- **React** (Client & Server Components)
+- **TypeScript**
+- **MongoDB** (via Mongoose)
+- **Tailwind CSS** for styling
+- **Vercel** for deployment
 
-## Deploy on Vercel
+## 📁 Project Structure Highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/api/`: API routes (e.g., `/api/products`, `/api/order`)
+- `components/`: UI components (Product list, Cart, etc.)
+- `context/`: React context for global state (e.g., cart management)
+- `model/`: Mongoose models for MongoDB collections
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Live Demo
+
+🔗 [Live on Vercel](https://your-vercel-project-url.vercel.app)
+
+## 📸 Preview
+
+![NextMart Preview](public/screenshot.png)
+
+---
+
+Feel free to clone, explore, or contribute to this project!
+
+---
+
+## 📩 Contact
+
+If you have any questions or suggestions, feel free to reach out!
+
